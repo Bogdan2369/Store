@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><title>Купівля файлу</title></head>
+<body>
+  {% if stage == 'upload' %}
+    <h2>1. Завантаж файл</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" required><br><br>
+<label>2. Введи будь-яку ціну ($):</label><br>
+<input type="text" name="price" placeholder="Наприклад: 0.48" required><br><br>
+      <button type="submit">Продовжити</button>
+    </form>
+  {% elif stage == 'math' %}
+    <h2>3. Математична перевірка</h2>
+    <form method="POST" action="/check">
+      <label>Скільки буде {{ num1 }} {{ op }} {{ num2 }}?</label><br>
+      <input type="text" name="answer" required>
+      <button type="submit">Перевірити</button>
+    </form>
+  {% endif %}
+</body>
+</html>
